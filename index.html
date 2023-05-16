@@ -65,7 +65,7 @@
 <body>
   <script>
     const baseUrl = "https://exonymos.github.io/Projects/";
-    fetch("https://api.github.com/repos/Exonymos/exonymos.github.io/contents/Projects")
+    fetch("https://api.github.com/repos/Exonymos/Projects/contents")
       .then(response => response.json())
       .then(data => {
         const fileList = document.getElementById("fileList");
