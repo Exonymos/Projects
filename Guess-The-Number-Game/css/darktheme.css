@@ -1,0 +1,73 @@
+/* Dark mode */
+body.dark-mode {
+    background-color: #333;
+    color: #f2f2f2;
+}
+
+body.dark-mode .header {
+    background-color: #222222;
+    color: #f2f2f2;
+}
+
+body.dark-mode .header__home {
+    color: #f2f2f2;
+}
+
+body.dark-mode .header__dark-mode-toggle {
+    background-color: #f2f2f2;
+    color: #222;
+    border-color: #f2f2f2;
+}
+
+body.dark-mode .header__github {
+    color: #f2f2f2;
+    background-color: #00000000;
+    border: none;
+}
+
+body.dark-mode .github__link {
+    color: #f2f2f2;
+}
+
+.card.dark-mode {
+    background-color: #222;
+    color: #f2f2f2;
+}
+
+.btn-primary.dark-mode {
+    background-color: #0056b2;
+    border: none;
+}
+
+.btn-primary.dark-mode:hover {
+    background-color: #0068d6;
+}
+
+.btn-info.dark-mode {
+    background-color: #138496;
+    border-color: #138496;
+}
+
+.btn-info.dark-mode:hover {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+#feedback.dark-mode,
+#timer.dark-mode,
+#score.dark-mode {
+    color: #f2f2f2;
+}
+
+.dark-mode .footer {
+    background-color: #222222;
+    color: #666;
+}
+
+.dark-mode .footer__link {
+    color: #aaa;
+}
+
+.dark-mode .footer__link:hover {
+    color: #06c;
+}

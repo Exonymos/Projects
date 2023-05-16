@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Folder Contents</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #fileList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #fileList a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      margin: 10px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: #333;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    #fileList a:hover {
+      background-color: #f7f7f7;
+    }
+
+    .fa {
+      font-size: 60px;
+      margin-right: 20px;
+    }
+
+    .fa-folder {
+      color: #ffa500;
+    }
+
+    .fa-file {
+      color: #008cba;
+    }
+
+    .file-name {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    const baseUrl = "https://exonymos.github.io/Projects/";
+    fetch("https://api.github.com/repos/Exonymos/exonymos.github.io/contents/Projects")
+      .then(response => response.json())
+      .then(data => {
+        const fileList = document.getElementById("fileList");
+        data.forEach(item => {
+          if (item.name === "index.html") {
+            return; // skip the index.html file
+          }
+          const link = document.createElement("a");
+          const icon = document.createElement("i");
+          if (item.type === "dir") {
+            icon.className = "fas fa-folder";
+            link.href = baseUrl + item.name + "/";
+          } else {
+            icon.className = "fas fa-file";
+            link.href = baseUrl + item.name;
+          }
+          const fileName = document.createElement("span");
+          fileName.className = "file-name";
+          fileName.textContent = item.name;
+          link.appendChild(icon);
+          link.appendChild(fileName);
+          fileList.appendChild(link);
+        });
+      });
+  </script>
+
+  <h1>Folder Contents</h1>
+  <ul id="fileList"></ul>
+</body>
+
+</html>
