@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="toggle-container">
+            <label class="toggle-switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <h1>Countdown Timer</h1>
+        <div class="form-group">
+            <label for="datetime">Select a date and time:</label>
+            <input type="datetime-local" id="datetime" class="form-control">
+        </div>
+        <div class="controls">
+            <button id="start" class="btn btn-primary">Start</button>
+            <button id="stop" class="btn btn-secondary" disabled>Stop</button>
+            <button id="reset" class="btn btn-danger" disabled>Reset</button>
+        </div>
+        <div id="countdown" class="countdown"></div>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
