@@ -1,3 +1,13 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: #ececec;
+    color: #222;
+}
+
 .container {
     max-width: 500px;
     margin: 50px auto;
@@ -8,6 +18,7 @@
 .dark-mode {
     background-color: #222;
     color: #fff;
+    transition: background-color 0.3s ease;
 }
 
 h1 {
@@ -100,4 +111,37 @@ input[type="checkbox"]:checked + .toggle-slider {
 
 input[type="checkbox"]:checked + .toggle-slider:before {
     transform: translateX(20px);
+}
+
+#alarmToggle {
+    background-color: #434343;
+    border: solid 1px #b8b8b8;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.fa-bell {
+    text-shadow: 0 0 10px rgb(195, 155, 12);
+    color: #f1c40f;
+}
+
+.fa-bell-slash {
+    text-shadow: 0 0 10px rgb(165, 55, 12);
+    color: #e74c3c;
+}
+
+.progress {
+    margin: 20px;
+    height: 15px;
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.7);
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #007bff;
+    transition: width 0.3s ease;
 }
