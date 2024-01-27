@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin Impact AR Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div id="calculator">
+        <h2>Genshin Impact AR Calculator</h2>
+        <form id="calcForm">
+
+            <label for="currentAR" id="labelCurrentAR">Current Adventure Rank:</label>
+            <input type="number" id="currentAR" placeholder="1" required aria-labelledby="labelCurrentAR"><br>
+
+            <label for="currentXP" id="labelCurrentXP">Current XP:</label>
+            <input type="number" id="currentXP" placeholder="100" required aria-labelledby="labelCurrentXP"><br>
+
+            <label for="targetAR" id="labelTargetAR">Target Adventure Rank:</label>
+            <input type="number" id="targetAR" placeholder="25" required aria-labelledby="labelTargetAR"><br>
+
+            <button type="button" onclick="calculateXP()">Calculate XP</button>
+
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script defer src="script.js"></script>
+</body>
+
+</html>
