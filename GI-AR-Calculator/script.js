@@ -53,7 +53,6 @@ function calculateXP() {
     }
 
     const xpNeeded = targetARXP - currentXP - currentARXP;
-// also add logic for if user already reached max ar
 
     if (xpNeeded > 0) {
         document.getElementById('result').textContent = `You need ${xpNeeded} XP to reach AR ${targetAR}. Keep exploring!`;
