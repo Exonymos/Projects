@@ -11,10 +11,13 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    margin: 0; /* Remove default body margin */
 }
 
 .container {
-    width: 400px;
+    width: 80%; /* Use percentage for responsiveness */
+    max-width: 400px; /* Set a maximum width */
+    margin: auto; /* Center the container */
     padding: 25px 35px;
     background: #1e1e1e;
     border-radius: 10px;
@@ -61,11 +64,13 @@ body {
 }
 
 #qrBox {
-    width: 200px;
+    width: 80%; /* Use percentage for responsiveness */
+    max-width: 200px; /* Set a maximum width */
     border-radius: 5px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s, margin 0.3s;
+    margin: 0 auto; /* Center the QR box */
 }
 
 #qrBox img {
@@ -92,5 +97,13 @@ body {
     }
     50% {
         transform: translateX(2px);
+    }
+}
+
+/* Media query for smaller screens */
+
+@media screen and (max-width: 400px) {
+    .container {
+        width: 95%;
     }
 }
