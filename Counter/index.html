@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Counter App</h1>
+      <div class="counter">
+        <button id="decrement-btn" aria-label="Decrease">-</button>
+        <div id="counter-value" role="status" aria-live="polite">0</div>
+        <button id="increment-btn" aria-label="Increase">+</button>
+      </div>
+      <button id="reset" aria-label="Reset">Reset</button>
+      <button id="advanced" aria-label="Toggle Advanced Options">Advanced</button>
+      <div id="extra-buttons" role="group" aria-label="Advanced Options" class="advanced-buttons">
+        <button id="subtract10-btn" aria-label="Subtract 10">-10</button>
+        <button id="subtract2-btn" aria-label="Subtract 2">-2</button>
+        <button id="add2-btn" aria-label="Add 2">+2</button>
+        <button id="add10-btn" aria-label="Add 10">+10</button>
+      </div>
+    </div>
+    <script defer src="script.js"></script>
+  </body>
+
+</html>
