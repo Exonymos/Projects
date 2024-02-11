@@ -162,6 +162,9 @@
                 if (item.name === "index.html") {
                     return; // skip the index.html file
                 }
+                if (item.name === "README.md") {
+                    return; // skip the README.md file
+                }
                 const link = document.createElement("a");
                 const icon = document.createElement("i");
                 if (item.type === "dir") {
