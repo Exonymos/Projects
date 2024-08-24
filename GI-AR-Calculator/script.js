@@ -72,3 +72,39 @@ function findCurrentRank(totalXP) {
     }
     return adventureRanks[adventureRanks.length - 1][0];
 }
+
+// Save data to localStorage
+function saveToLocalStorage() {
+    const currentAR = document.getElementById('currentAR').value;
+    const currentXP = document.getElementById('currentXP').value;
+    const targetAR = document.getElementById('targetAR').value;
+
+    localStorage.setItem('currentAR', currentAR);
+    localStorage.setItem('currentXP', currentXP);
+    localStorage.setItem('targetAR', targetAR);
+}
+
+// Load data from localStorage
+function loadFromLocalStorage() {
+    const currentAR = localStorage.getItem('currentAR');
+    const currentXP = localStorage.getItem('currentXP');
+    const targetAR = localStorage.getItem('targetAR');
+
+    if (currentAR !== null) {
+        document.getElementById('currentAR').value = currentAR;
+    }
+    if (currentXP !== null) {
+        document.getElementById('currentXP').value = currentXP;
+    }
+    if (targetAR !== null) {
+        document.getElementById('targetAR').value = targetAR;
+    }
+}
+
+// Call loadFromLocalStorage when the page loads
+window.onload = loadFromLocalStorage;
+
+// Update saveToLocalStorage when input values change
+document.getElementById('currentAR').addEventListener('input', saveToLocalStorage);
+document.getElementById('currentXP').addEventListener('input', saveToLocalStorage);
+document.getElementById('targetAR').addEventListener('input', saveToLocalStorage);
