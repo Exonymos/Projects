@@ -57,13 +57,3 @@ sipButton.addEventListener('click', () => {
             console.error("Error updating document:", error);
         });
 });
-
-// Change background image randomly
-function changeBackgroundImage() {
-    const images = ['image1.jpg', 'image2.jpg', 'image3.jpg']; // Replace with your image paths
-    const randomImage = images[Math.floor(Math.random() * images.length)];
-    document.querySelector('.background').style.backgroundImage = `url(${randomImage})`;
-}
-
-// Change image every time the page is loaded
-changeBackgroundImage();
