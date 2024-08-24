@@ -1,6 +1,14 @@
-@import url('https://fonts.cdnfonts.com/css/wavepool');
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+@import url("https://fonts.cdnfonts.com/css/wavepool");
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+:root {
+    --background-color: rgba(255, 255, 255, 0.8);
+    --button-color: #10380c;
+    --button-hover-color: #025a00;
+    --text-color: #333;
+    --highlight-color: #025a00;
+}
 
 * {
     box-sizing: border-box;
@@ -30,19 +38,19 @@ body {
 
 .content {
     position: relative;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--background-color);
     border-radius: 15px;
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+    z-index: 2;
 }
 
 .content h1 {
     font-family: "Wavepool", sans-serif;
     font-size: 2.5rem;
-    color: #10380c;
+    color: var(--button-color);
     margin-bottom: 10px;
 }
 
@@ -50,7 +58,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     font-size: 1.5rem;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
@@ -58,15 +66,17 @@ body {
     font-family: "Fredericka the Great", serif;
     font-weight: 400;
     font-size: 2.5rem;
-    color: #025a00;
+    color: var(--highlight-color);
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
 
 #sip-button {
+    font-family: "Wavepool", sans-serif;
+    font-weight: 500;
     padding: 10px 20px;
     font-size: 1.2rem;
     color: #fff;
-    background-color: #10380c;
+    background-color: var(--button-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -74,7 +84,7 @@ body {
 }
 
 #sip-button:hover {
-    background-color: #025a00;
+    background-color: var(--button-hover-color);
     transform: scale(1.05);
 }
 
