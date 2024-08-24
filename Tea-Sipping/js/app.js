@@ -45,7 +45,6 @@ getDoc(counterRef).then((docSnap) => {
 // Handle button click
 sipButton.addEventListener('click', () => {
     console.log("Button clicked!"); // Debugging line
-    alert("Button works!"); // Simple alert to confirm button functionality
 
     updateDoc(counterRef, { count: increment(1) })
         .then(() => {
