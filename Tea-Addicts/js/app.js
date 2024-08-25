@@ -1,5 +1,6 @@
+// Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -22,38 +23,71 @@ const counterRef = doc(db, 'teaCounter', 'global');
 // Elements
 const teaCounter = document.getElementById('tea-counter');
 const sipButton = document.getElementById('sip-button');
+const errorMessage = document.getElementById('error-message');
+
+// Sipping sounds
+const sipSounds = [
+    document.getElementById('sip-sound1'),
+    document.getElementById('sip-sound2'),
+    document.getElementById('sip-sound3')
+];
+
+// Local counter variable
+let localCounter = 0;
 
 // Function to update counter on the page
 function updateCounter(newCount) {
-    teaCounter.textContent = newCount;
+    localCounter = newCount;
+    teaCounter.textContent = localCounter;
+    teaCounter.style.transform = "scale(1.2)";
+    setTimeout(() => teaCounter.style.transform = "scale(1)", 200);
+}
+
+// Function to play a random sip sound
+function playRandomSipSound() {
+    const randomSound = sipSounds[Math.floor(Math.random() * sipSounds.length)];
+    randomSound.play();
+}
+
+// Show error message
+function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.classList.remove('hidden');
 }
 
 // Get the current counter value from Firestore
-getDoc(counterRef).then((docSnap) => {
-    if (docSnap.exists()) {
-        updateCounter(docSnap.data().count);
-    } else {
-        // Initialize counter if it doesn't exist
-        setDoc(counterRef, { count: 0 }).then(() => {
-            updateCounter(0);
-        });
-    }
-}).catch((error) => {
-    console.error("Error getting document:", error);
-});
+function fetchCounter() {
+    getDoc(counterRef)
+        .then((docSnap) => {
+            if (docSnap.exists()) {
+                updateCounter(docSnap.data().count);
+            } else {
+                showError("Counter document not found. Please contact support.");
+            }
+        })
+        .catch((error) => showError("Error getting document: " + error));
+}
 
 // Handle button click
 sipButton.addEventListener('click', () => {
-    console.log("Button clicked!"); // Debugging line
+    // Update the local counter first to reflect the change immediately
+    localCounter++;
+    updateCounter(localCounter);
+    playRandomSipSound();
 
+    // Sync the increment with Firestore
     updateDoc(counterRef, { count: increment(1) })
         .then(() => {
-            getDoc(counterRef).then((docSnap) => {
-                if (docSnap.exists()) {
-                    updateCounter(docSnap.data().count);
-                }
-            });
-        }).catch((error) => {
-            console.error("Error updating document:", error);
+            // Optionally fetch the updated count from Firestore
+            fetchCounter();
+        })
+        .catch((error) => {
+            showError("Error updating document: " + error);
+            // Revert the local counter if Firestore update fails
+            localCounter--;
+            updateCounter(localCounter);
         });
 });
+
+// Fetch counter on load
+fetchCounter();

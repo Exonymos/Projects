@@ -6,21 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tea Addicts</title>
     <link rel="stylesheet" href="css/style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
-    <div class="background"></div>
-
+    <header>
+        <img src="https://raw.githubusercontent.com/Exonymos/Assets/main/Github-desktop-logo-symbol.svg?token=GHSAT0AAAAAACVOK5DM26HD7BLZ4TKR2XL2ZWLCNFA"
+            alt="GitHub Logo" id="github-logo">
+        <a href="https://github.com/exonymos" id="profile-link" aria-label="Made by Exonymos">Made by Exonymos</a>
+    </header>
+    <div class="background-container">
+        <div class="background"></div>
+    </div>
     <div class="content">
         <h1>Join the Tea Party!</h1>
         <span id="tea-counter">0</span>
-        <p>Sips of tea have been taken!</p>
+        <p id="sip-text">Sips of tea have been taken!</p>
         <button id="sip-button" aria-label="Sip some tea">Sip Some Tea</button>
+        <p id="error-message" class="hidden" aria-live="assertive">Oops! Something went wrong. Please try again.</p>
     </div>
-
+    <audio id="sip-sound1" src="sounds/sip1.mp3" preload="auto"></audio>
+    <audio id="sip-sound2" src="sounds/sip2.mp3" preload="auto"></audio>
+    <audio id="sip-sound3" src="sounds/sip3.mp3" preload="auto"></audio>
     <script type="module" src="js/app.js"></script>
 </body>
 

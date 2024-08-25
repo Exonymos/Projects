@@ -3,11 +3,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 
 :root {
-    --background-color: rgba(255, 255, 255, 0.8);
+    --background-color: rgba(255, 255, 255, 0.7);
     --button-color: #10380c;
     --button-hover-color: #025a00;
     --text-color: #333;
+    --link-color: #e3e3e3;
     --highlight-color: #025a00;
+    --error-color: #d9534f;
 }
 
 * {
@@ -22,6 +24,47 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+#github-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+#profile-link {
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+#profile-link:hover {
+    text-decoration: underline;
+}
+
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .background {
@@ -30,10 +73,23 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1;
     background: url("../TeaWall.jpg") no-repeat center center fixed;
     background-size: cover;
     filter: blur(8px);
+    width: 100%;
+    height: 100%;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(8px);
+    z-index: -1;
 }
 
 .content {
@@ -54,20 +110,21 @@ body {
     margin-bottom: 10px;
 }
 
-.content p {
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: 20px;
-}
-
 #tea-counter {
     font-family: "Fredericka the Great", serif;
     font-weight: 400;
     font-size: 2.5rem;
     color: var(--highlight-color);
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease-in-out;
+}
+
+#sip-text {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
 }
 
 #sip-button {
@@ -90,4 +147,69 @@ body {
 
 #sip-button:active {
     transform: scale(0.95);
+}
+
+.hidden {
+    display: none;
+}
+
+#error-message {
+    color: var(--error-color);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #profile-link {
+        margin: 5px 0;
+    }
+
+    #github-logo {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    #github-logo {
+        width: 18px;
+        height: 18px;
+    }
+
+    #profile-link {
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+
+    .content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #tea-counter {
+        font-size: 2rem;
+    }
+
+    #sip-text {
+        font-size: 1.2rem;
+    }
+
+    #sip-button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
 }
