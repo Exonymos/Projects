@@ -62,7 +62,7 @@ function fetchCounter() {
             if (docSnap.exists()) {
                 updateCounter(docSnap.data().count);
             } else {
-                showError("Counter document not found. Please contact support.");
+                showError("Error getting document.");
             }
         })
         .catch((error) => showError("Error getting document: " + error));
