@@ -55,20 +55,20 @@ function showError(message) {
     errorMessage.classList.remove('hidden');
 }
 
-// Get the current counter value from Firestore
+// Function to fetch the latest count from Firestore
 function fetchCounter() {
-    getDoc(counterRef)
-        .then((docSnap) => {
-            if (docSnap.exists()) {
-                updateCounter(docSnap.data().count);
-            } else {
-                showError("Error getting document.");
-            }
-        })
-        .catch((error) => showError("Error getting document: " + error));
+    getDoc(counterRef).then((docSnap) => {
+        if (docSnap.exists()) {
+            updateCounter(docSnap.data().count);
+        } else {
+            showError("No such document!");
+        }
+    }).catch((error) => {
+        showError("Error getting document: " + error);
+    });
 }
 
-// Handle button click
+// Event listener for the sip button
 sipButton.addEventListener('click', () => {
     // Update the local counter first to reflect the change immediately
     localCounter++;
@@ -77,10 +77,6 @@ sipButton.addEventListener('click', () => {
 
     // Sync the increment with Firestore
     updateDoc(counterRef, { count: increment(1) })
-        .then(() => {
-            // Optionally fetch the updated count from Firestore
-            fetchCounter();
-        })
         .catch((error) => {
             showError("Error updating document: " + error);
             // Revert the local counter if Firestore update fails
@@ -89,5 +85,5 @@ sipButton.addEventListener('click', () => {
         });
 });
 
-// Fetch counter on load
-fetchCounter();
+// Fetch the latest count on page load
+window.addEventListener('load', fetchCounter);
