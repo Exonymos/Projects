@@ -37,8 +37,7 @@ let localCounter = 0;
 
 // Function to update counter on the page
 function updateCounter(newCount) {
-    localCounter = newCount;
-    teaCounter.textContent = localCounter;
+    teaCounter.textContent = newCount;
     teaCounter.style.transform = "scale(1.2)";
     setTimeout(() => teaCounter.style.transform = "scale(1)", 200);
 }
@@ -59,7 +58,8 @@ function showError(message) {
 function fetchCounter() {
     getDoc(counterRef).then((docSnap) => {
         if (docSnap.exists()) {
-            updateCounter(docSnap.data().count);
+            localCounter = docSnap.data().count;
+            updateCounter(localCounter);
         } else {
             showError("No such document!");
         }
@@ -70,7 +70,7 @@ function fetchCounter() {
 
 // Event listener for the sip button
 sipButton.addEventListener('click', () => {
-    // Update the local counter first to reflect the change immediately
+    // Increment the local counter
     localCounter++;
     updateCounter(localCounter);
     playRandomSipSound();
