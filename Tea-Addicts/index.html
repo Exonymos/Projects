@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tea Addicts</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
     <link rel="icon"
         href="https://cdn.discordapp.com/attachments/1063792900376383509/1276946439473467517/5geaN1x.gif?ex=66cd5acb&is=66cc094b&hm=ec23385929a282add23b5bca6ad78a7b5278547be3eb639a454f06de391dd6f1&%3Fsize=64x64&"
         type="image/x-icon">
@@ -14,11 +13,10 @@
     <meta name="keywords" content="tea, tea party, tea addicts, sip, sips, tea sips, tea counter, tea app">
     <meta name="author" content="Exonymos">
 </head>
-
 <body>
     <header>
         <a href="https://github.com/exonymos" id="profile-link" aria-label="Made by Exonymos"><img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/2048px-Github-desktop-logo-symbol.svg.png"
+                src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg"
                 alt="GitHub Logo" id="github-logo"> Made by Exonymos</a>
     </header>
     <div class="background-container">
@@ -29,12 +27,11 @@
         <span id="tea-counter">0</span>
         <p id="sip-text">Sips of tea have been taken!</p>
         <button id="sip-button" aria-label="Sip some tea">Sip Some Tea</button>
-        <p id="error-message" class="hidden" aria-live="assertive">Oops! Something went wrong. Please try again.</p>
+        <p id="error-message" class="hidden" aria-live="assertive"></p>
     </div>
-    <audio id="sip-sound1" src="sounds/sip1.mp3" preload="auto"></audio>
-    <audio id="sip-sound2" src="sounds/sip2.mp3" preload="auto"></audio>
-    <audio id="sip-sound3" src="sounds/sip3.mp3" preload="auto"></audio>
-    <script type="module" src="js/app.js"></script>
+    <audio id="sip-sound1" src="sounds/sip1.mp3" preload="auto" loading="lazy"></audio>
+    <audio id="sip-sound2" src="sounds/sip2.mp3" preload="auto" loading="lazy"></audio>
+    <audio id="sip-sound3" src="sounds/sip3.mp3" preload="auto" loading="lazy"></audio>
+    <script type="module" src="js/app.min.js"></script>
 </body>
-
 </html>
