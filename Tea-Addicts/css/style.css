@@ -73,7 +73,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("../TeaWall.jpg") no-repeat center center fixed;
+    background: url("../TeaWall.webp") no-repeat center center fixed;
     background-size: cover;
     filter: blur(8px);
     width: 100%;
