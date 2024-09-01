@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tea Addicts</title>
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
     <link rel="icon"
         href="https://cdn.discordapp.com/attachments/1063792900376383509/1276946439473467517/5geaN1x.gif?ex=66cd5acb&is=66cc094b&hm=ec23385929a282add23b5bca6ad78a7b5278547be3eb639a454f06de391dd6f1&%3Fsize=64x64&"
         type="image/x-icon">
@@ -14,6 +14,9 @@
     <meta name="author" content="Exonymos">
 </head>
 <body>
+    <div id="loader-wrapper">
+        <div class="loader"></div>
+    </div>
     <header>
         <a href="https://github.com/exonymos" id="profile-link" aria-label="Made by Exonymos"><img
                 src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg"
@@ -32,6 +35,11 @@
     <audio id="sip-sound1" src="sounds/sip1.mp3" preload="auto" loading="lazy"></audio>
     <audio id="sip-sound2" src="sounds/sip2.mp3" preload="auto" loading="lazy"></audio>
     <audio id="sip-sound3" src="sounds/sip3.mp3" preload="auto" loading="lazy"></audio>
+    <script type="text/javascript">
+        $(window).on('load', function () {
+            $("#loader-wrapper").fadeOut(700);
+        });
+    </script>
     <script type="module" src="js/app.min.js"></script>
 </body>
 </html>
