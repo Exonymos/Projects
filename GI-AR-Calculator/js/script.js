@@ -52,13 +52,14 @@ function calculateXP() {
         }
     }
 
-    const xpNeeded = targetARXP - currentXP - currentARXP;
+    const totalCurrentXP = currentXP + currentARXP;
+    const xpNeeded = targetARXP - totalCurrentXP;
 
     if (xpNeeded > 0) {
         document.getElementById('result').textContent = `You need ${xpNeeded} XP to reach AR ${targetAR}. Keep exploring!`;
     } else {
-        const currentRank = findCurrentRank(currentXP + currentARXP);
-        const xpToNextRank = adventureRanks[currentRank + 1][1] - (currentXP + currentARXP);
+        const currentRank = findCurrentRank(totalCurrentXP);
+        const xpToNextRank = adventureRanks[currentRank][1] - totalCurrentXP;
 
         document.getElementById('result').textContent = `Congratulations! You are at AR ${currentRank}. You need ${xpToNextRank} XP to reach AR ${currentRank + 1}. Keep up the good work!`;
     }
