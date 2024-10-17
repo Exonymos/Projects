@@ -22,7 +22,6 @@ function validateInput() {
         alert('Please enter valid input values.');
         return false;
     }
-
     return true;
 }
 
@@ -34,35 +33,30 @@ function calculateXP() {
     const currentAR = parseInt(document.querySelector('#currentAR').value);
     const currentXP = parseInt(document.querySelector('#currentXP').value);
     const targetAR = parseInt(document.querySelector('#targetAR').value);
-
-    let currentARXP = 0;
-    let targetARXP = 0;
+    
+    const currentARXP = getARXP(currentAR);
+    const targetARXP = getARXP(targetAR);
 
     if (targetAR > adventureRanks[adventureRanks.length - 1][0]) {
-        document.querySelector('#result').textContent = `Invalid target AR. The maximum AR is ${adventureRanks[adventureRanks.length - 1][0]}.`;
+        displayResult(`Invalid target AR. The maximum AR is ${adventureRanks[adventureRanks.length - 1][0]}.`);
         return;
-    }
-
-    for (let i = 0; i < adventureRanks.length; i++) {
-        if (adventureRanks[i][0] === currentAR) {
-            currentARXP = adventureRanks[i][1];
-        }
-        if (adventureRanks[i][0] === targetAR) {
-            targetARXP = adventureRanks[i][1];
-        }
     }
 
     const totalCurrentXP = currentXP + currentARXP;
     const xpNeeded = targetARXP - totalCurrentXP;
 
     if (xpNeeded > 0) {
-        document.getElementById('result').textContent = `You need ${xpNeeded} XP to reach AR ${targetAR}. Keep exploring!`;
+        displayResult(`You need ${xpNeeded} XP to reach AR ${targetAR}. Keep exploring!`);
     } else {
         const currentRank = findCurrentRank(totalCurrentXP);
         const xpToNextRank = adventureRanks[currentRank][1] - totalCurrentXP;
-
-        document.getElementById('result').textContent = `Congratulations! You are at AR ${currentRank}. You need ${xpToNextRank} XP to reach AR ${currentRank + 1}. Keep up the good work!`;
+        displayResult(`Congratulations! You are at AR ${currentRank}. You need ${xpToNextRank} XP to reach AR ${currentRank + 1}. Keep up the good work!`);
     }
+}
+
+function getARXP(adventureRank) {
+    const rank = adventureRanks.find(rank => rank[0] === adventureRank);
+    return rank ? rank[1] : 0;
 }
 
 function findCurrentRank(totalXP) {
@@ -74,7 +68,10 @@ function findCurrentRank(totalXP) {
     return adventureRanks[adventureRanks.length - 1][0];
 }
 
-// Save data to localStorage
+function displayResult(message) {
+    document.getElementById('result').textContent = message;
+}
+
 function saveToLocalStorage() {
     const currentAR = document.getElementById('currentAR').value;
     const currentXP = document.getElementById('currentXP').value;
@@ -85,7 +82,6 @@ function saveToLocalStorage() {
     localStorage.setItem('targetAR', targetAR);
 }
 
-// Load data from localStorage
 function loadFromLocalStorage() {
     const currentAR = localStorage.getItem('currentAR');
     const currentXP = localStorage.getItem('currentXP');
@@ -102,10 +98,7 @@ function loadFromLocalStorage() {
     }
 }
 
-// Call loadFromLocalStorage when the page loads
 window.onload = loadFromLocalStorage;
-
-// Update saveToLocalStorage when input values change
 document.getElementById('currentAR').addEventListener('input', saveToLocalStorage);
 document.getElementById('currentXP').addEventListener('input', saveToLocalStorage);
 document.getElementById('targetAR').addEventListener('input', saveToLocalStorage);
