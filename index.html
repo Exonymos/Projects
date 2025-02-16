@@ -178,6 +178,9 @@
                 if (item.name === "README.md") {
                     return; // skip the README.md file
                 }
+                if (item.name === "Gacha-Level-Calculator") {
+                    return; // skip the Gacha-Level-Calculator folder
+                }
                 const link = document.createElement("a");
                 const icon = document.createElement("i");
                 if (item.type === "dir") {
