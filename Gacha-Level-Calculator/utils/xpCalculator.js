@@ -18,8 +18,8 @@ export function validateInput({
   if (isNaN(currentLevel) || isNaN(currentExp) || isNaN(targetLevel)) {
     return false;
   }
-  if (currentLevel < xpData[0][0]) return false; // Ensure level is not below the first level.
-  if (currentExp < 0) return false; // Exp cannot be negative.
+  if (currentLevel < xpData[0][0]) return false;
+  if (currentExp < 0) return false;
   if (targetLevel <= currentLevel || targetLevel > xpData[xpData.length - 1][0])
     return false;
   return true;
@@ -51,7 +51,6 @@ export function findCurrentLevel(xpData, totalXp) {
  *                   If the user already has enough XP, returns { reached: true, currentCalculatedLevel, xpToNext }.
  */
 export function calculateXp({ xpData, currentLevel, currentExp, targetLevel }) {
-  // Find the base XP for the current and target levels.
   const currentLevelData = xpData.find(([level]) => level === currentLevel);
   const targetLevelData = xpData.find(([level]) => level === targetLevel);
 
@@ -62,15 +61,12 @@ export function calculateXp({ xpData, currentLevel, currentExp, targetLevel }) {
   const currentBaseXp = currentLevelData[1];
   const targetBaseXp = targetLevelData[1];
 
-  // Total XP is the base XP of the current level plus the XP you've gained.
   const totalCurrentXp = currentBaseXp + currentExp;
   const xpNeeded = targetBaseXp - totalCurrentXp;
 
   if (xpNeeded > 0) {
-    // More XP is needed to reach the target.
     return { xpNeeded, reached: false };
   } else {
-    // You've reached or exceeded the target XP.
     const currentCalculatedLevel = findCurrentLevel(xpData, totalCurrentXp);
     const nextLevelData = xpData.find(
       ([level]) => level === currentCalculatedLevel + 1

@@ -13,7 +13,7 @@ export default function CalculatorForm({
   buttonBgColor,
   buttonHoverColor,
 }) {
-  // Local state for inputs (dailyExp is intentionally not persisted)
+  // Local state for inputs
   const [currentLevel, setCurrentLevel] = useState("");
   const [currentExp, setCurrentExp] = useState("");
   const [targetLevel, setTargetLevel] = useState("");
@@ -21,7 +21,7 @@ export default function CalculatorForm({
   const [result, setResult] = useState("");
   const [daysResult, setDaysResult] = useState("");
 
-  // Load saved values from localStorage (only on client)
+  // Load saved values from localStorage
   useEffect(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem(localStorageKey);
@@ -34,7 +34,7 @@ export default function CalculatorForm({
     }
   }, [localStorageKey]);
 
-  // Save values to localStorage when they change (except dailyExp)
+  // Save values to localStorage when they change
   useEffect(() => {
     if (typeof window !== "undefined") {
       const data = { currentLevel, currentExp, targetLevel };

@@ -27,7 +27,6 @@ export const globalStyles = css.global`
     font-weight: 100 900;
     font-style: italic;
   }
-  /* Global resets and body styles */
   * {
     box-sizing: border-box;
   }
