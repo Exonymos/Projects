@@ -23,7 +23,7 @@ export default function Header() {
         </svg>
       </button>
       <nav>
-        <h1>Game Exp Calculator</h1>
+        <h1>No Grass Calculator</h1>
       </nav>
       <style jsx>{`
         header {
