@@ -19,8 +19,8 @@ export default function GameButton({ game }) {
             border-radius: 8px;
             text-decoration: none;
             color: #e0e0e0;
-            width: 90%;
-            max-width: 800px;
+            width: 100%;
+            max-width: 450px;
             height: 200px;
             margin: 0 auto;
           }
@@ -56,6 +56,16 @@ export default function GameButton({ game }) {
             font-size: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             margin: 0;
+          }
+          /* Responsive adjustments */
+          @media (max-width: 990px) {
+            .game-button {
+              max-width: 100%;
+              height: 150px;
+            }
+            h2 {
+              font-size: 1.2rem;
+            }
           }
         `}</style>
       </a>

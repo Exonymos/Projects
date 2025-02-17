@@ -84,12 +84,18 @@ export default function CalculatorForm({
         setDaysResult("");
       }
     } else {
-      setResult(
-        generateSuccessMessage(
-          xpResult.currentCalculatedLevel,
-          xpResult.xpToNext
-        )
-      );
+      if (xpResult.maxLevel) {
+        setResult(
+          `Congratulations! You've reached the maximum level of ${xpResult.currentCalculatedLevel}.`
+        );
+      } else {
+        setResult(
+          generateSuccessMessage(
+            xpResult.currentCalculatedLevel,
+            xpResult.xpToNext
+          )
+        );
+      }
       setDaysResult("");
     }
   };
@@ -158,6 +164,25 @@ export default function CalculatorForm({
         }
         button:hover {
           background-color: ${buttonHoverColor};
+        }
+        /* Responsive adjustments for the calculator container */
+        @media (max-width: 990px) {
+          .calculator-container {
+            margin: 1rem auto;
+            padding: 1rem;
+            width: 90%;
+          }
+          .calculator-form {
+            gap: 0.75rem;
+          }
+          .form-group input {
+            font-size: 0.9rem;
+            padding: 0.4rem;
+          }
+          button {
+            padding: 0.65rem;
+            font-size: 0.9rem;
+          }
         }
       `}</style>
     </div>

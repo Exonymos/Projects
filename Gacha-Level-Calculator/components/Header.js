@@ -60,6 +60,12 @@ export default function Header() {
           font-size: 2rem;
           margin: 0;
         }
+        /* Responsive adjustments */
+        @media (max-width: 990px) {
+          h1 {
+            font-size: 1.5rem;
+          }
+        }
       `}</style>
     </header>
   );

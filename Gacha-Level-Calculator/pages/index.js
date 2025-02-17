@@ -6,24 +6,24 @@ export default function Home() {
   const games = [
     {
       name: "Genshin Impact",
-      image: "/genshin-impact.webp",
+      image: "/images/genshin-impact.webp",
       link: "/genshin-impact",
     },
     {
       name: "Honkai: Star Rail",
-      image: "/honkai-star-rail.webp",
+      image: "/images/honkai-star-rail.webp",
       link: "/star-rail",
     },
     {
-        name: "Wuthering Waves",
-        image: "/wuthering-waves.webp",
-        link: "/wuthering-waves",
+      name: "Wuthering Waves",
+      image: "/images/wuthering-waves.webp",
+      link: "/wuthering-waves",
     },
     {
-        name: "Zenless Zone Zero",
-        image: "/zenless-zone-zero.webp",
-        link: "/zenless-zone-zero",
-    }
+      name: "Zenless Zone Zero",
+      image: "/images/zenless-zone-zero.webp",
+      link: "/zenless-zone-zero",
+    },
   ];
 
   return (
@@ -46,6 +46,17 @@ export default function Home() {
           gap: 1rem;
           margin-top: 2rem;
           align-items: center;
+        }
+        @media (min-width: 768px) {
+          .game-list {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          .game-list > :global(.game-button) {
+            flex: 1 1 calc(50% - 1rem);
+            margin: 0.5rem;
+          }
         }
       `}</style>
     </Layout>

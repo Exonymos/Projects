@@ -115,4 +115,29 @@ export const globalStyles = css.global`
     border-radius: 4px;
     text-align: center;
   }
+    /* Responsive adjustments */
+  @media (max-width: 990px) {
+    .container {
+      padding: 1rem;
+    }
+    .calculator-container {
+      margin: 1rem auto;
+      padding: 1.5rem;
+      max-width: 100%;
+    }
+    .calculator-form {
+      gap: 0.75rem;
+    }
+    .form-group input {
+      font-size: 0.9rem;
+      padding: 0.4rem;
+    }
+    button {
+      padding: 0.65rem;
+      font-size: 0.9rem;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+  }
 `;

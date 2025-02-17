@@ -48,7 +48,7 @@ export function findCurrentLevel(xpData, totalXp) {
  * @param {number} params.currentExp - The current Exp (beyond the base Exp of current level).
  * @param {number} params.targetLevel - The target level.
  * @returns {Object} If more XP is needed, returns { xpNeeded, reached: false }.
- *                   If the user already has enough XP, returns { reached: true, currentCalculatedLevel, xpToNext }.
+ *                   If the user already has enough XP, returns { reached: true, currentCalculatedLevel, xpToNext, maxLevel }.
  */
 export function calculateXp({ xpData, currentLevel, currentExp, targetLevel }) {
   const currentLevelData = xpData.find(([level]) => level === currentLevel);
@@ -71,7 +71,21 @@ export function calculateXp({ xpData, currentLevel, currentExp, targetLevel }) {
     const nextLevelData = xpData.find(
       ([level]) => level === currentCalculatedLevel + 1
     );
-    const xpToNext = nextLevelData ? nextLevelData[1] - totalCurrentXp : 0;
-    return { reached: true, currentCalculatedLevel, xpToNext };
+    if (!nextLevelData) {
+      return {
+        reached: true,
+        currentCalculatedLevel,
+        xpToNext: null,
+        maxLevel: true,
+      };
+    } else {
+      const xpToNext = nextLevelData[1] - totalCurrentXp;
+      return {
+        reached: true,
+        currentCalculatedLevel,
+        xpToNext,
+        maxLevel: false,
+      };
+    }
   }
 }
