@@ -5,7 +5,7 @@ export default function SEO({
   description = "Calculate the required exp for your favorite games like Genshin Impact, Honkai Star Rail, Wuthering Waves, and Zenless Zone Zero.",
   keywords = "Game, Exp, Calculator, Genshin Impact, Star Rail, Wuthering Waves, Zenless Zone Zero",
   url = "https://nograsscalc.vercel.app/",
-  image = "/images/genshin-impact.webp",
+  image = "og-image.jpg",
 }) {
   return (
     <Head>
@@ -48,11 +48,9 @@ export default function SEO({
         sizes="512x512"
         href="/favicon/android-chrome-512x512.png"
       />
-
-      {/* Theme Color */}
       <meta name="theme-color" content="#121212" />
 
-      {/* Open Graph / Facebook */}
+      {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />

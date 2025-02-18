@@ -21,7 +21,6 @@ export default function GenshinImpactCalculator() {
       <SEO
         title="Genshin Impact Exp Calculator"
         description="Calculate the required exp for leveling up in Genshin Impact."
-        image="/images/genshin-impact.webp"
       />
       <CalculatorForm
         title="Genshin Impact Calculator"

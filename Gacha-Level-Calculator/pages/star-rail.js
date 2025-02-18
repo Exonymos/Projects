@@ -21,7 +21,6 @@ export default function StarrailCalculator() {
       <SEO
         title="Honkai: Star Rail Exp Calculator"
         description="Calculate the required exp for leveling up in Honkai: Star Rail."
-        image="/images/honkai-star-rail.webp"
       />
       <CalculatorForm
         title="Honkai: Star Rail Calculator"

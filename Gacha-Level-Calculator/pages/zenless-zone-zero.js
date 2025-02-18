@@ -21,7 +21,6 @@ export default function ZenlessCalculator() {
       <SEO
         title="Zenless Zone Zero Exp Calculator"
         description="Calculate the required exp for leveling up in Zenless Zone Zero."
-        image="/images/zenless-zone-zero.webp"
       />
       <CalculatorForm
         title="Zenless Zone Zero Calculator"
