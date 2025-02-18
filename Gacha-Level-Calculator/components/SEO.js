@@ -7,7 +7,10 @@ export default function SEO({
   url = "https://nograsscalc.vercel.app/",
   image = "og-image.jpg",
 }) {
-  const imageUrl = `${url}${image.startsWith("/") ? "" : "/"}${image}`;
+  const fullImageUrl = image.startsWith("http")
+    ? image
+    : `${url}${image.startsWith("/") ? image.slice(1) : image}`;
+
   return (
     <Head>
       {/* Primary Meta Tags */}
@@ -56,14 +59,14 @@ export default function SEO({
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={fullImageUrl} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={fullImageUrl} />
     </Head>
   );
 }
