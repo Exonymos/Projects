@@ -21,7 +21,7 @@ export default function WutheringWavesCalculator() {
       <SEO
         title="Wuthering Waves Exp Calculator"
         description="Calculate the required exp for leveling up in Wuthering Waves."
-        image="/game-images/wuthering-waves.webp"
+        image="/images/wuthering-waves.webp"
       />
       <CalculatorForm
         title="Wuthering Waves Calculator"
