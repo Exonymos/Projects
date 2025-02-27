@@ -1,8 +1,8 @@
 <div align="center">
-    <a href="https://exonymos.github.io/Projects"><h1 align="center">My Projects</h1></a>
+
+# [My Projects](https://exonymos.github.io/Projects)
 
 Welcome to my project repository! Here, you can find a collection of my various projects, ranging from web applications to games and utilities.
-
 
 [![GitHub license](https://img.shields.io/github/license/Exonymos/exonymos.me)](https://github.com/Exonymos/exonymos.me/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/Exonymos/exonymos.me)](https://github.com/Exonymos/exonymos.me/issues)
@@ -14,22 +14,23 @@ Welcome to my project repository! Here, you can find a collection of my various 
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [About](#about)
-- [Projects](#projects)
-  - [Connect-4-React-Game](#connect-4-react-game)
-  - [Countdown-Timer](#countdown-timer)
-  - [Counter](#counter)
-  - [Gacha-Level-Calculator](#gacha-level-calculator)
-  - [GI-AR-Calculator](#gi-ar-calculator)
-  - [Guess-The-Number-Game](#guess-the-number-game)
-  - [Illusions](#illusions)
-  - [QR-Code-Generator](#qr-code-generator)
-  - [Quiz-Game](#quiz-game)
-  - [Random-Quote-Generator](#random-quote-generator)
-  - [Tea-Addicts](#tea-addicts)
-- [Contributing](#contributing)
-- [License](#license)
+- [My Projects](#my-projects)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+  - [Projects](#projects)
+    - [Connect-4-React-Game](#connect-4-react-game)
+    - [Countdown-Timer](#countdown-timer)
+    - [Counter](#counter)
+    - [Gacha-Level-Calculator](#gacha-level-calculator)
+    - [GI-AR-Calculator](#gi-ar-calculator)
+    - [Guess-The-Number-Game](#guess-the-number-game)
+    - [Illusions](#illusions)
+    - [QR-Code-Generator](#qr-code-generator)
+    - [Quiz-Game](#quiz-game)
+    - [Random-Quote-Generator](#random-quote-generator)
+    - [Tea-Addicts](#tea-addicts)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## About
 This repository contains a variety of projects that I have worked on. Each project is contained within its own directory and includes all necessary files to run and understand the project.
