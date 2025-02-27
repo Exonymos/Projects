@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://exonymos.me/"><h1 align="center">My Projects</h1></a>
+    <a href="https://exonymos.github.io/Projects"><h1 align="center">My Projects</h1></a>
 
 Welcome to my project repository! Here, you can find a collection of my various projects, ranging from web applications to games and utilities.
 
