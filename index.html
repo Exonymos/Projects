@@ -172,7 +172,7 @@
         function renderFileList(data) {
             const fileList = document.getElementById("fileList");
             data.forEach((item) => {
-                if (item.name === "index.html" || "README.md" || "Gacha-Level-Calculator" || "LICENCE") {
+                if (item.name === "index.html" || item.name === "README.md" || item.name === "Gacha-Level-Calculator" || item.name === "LICENCE") {
                     return; // skip these files
                 }
                 const link = document.createElement("a");
