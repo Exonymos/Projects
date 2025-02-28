@@ -172,14 +172,8 @@
         function renderFileList(data) {
             const fileList = document.getElementById("fileList");
             data.forEach((item) => {
-                if (item.name === "index.html") {
-                    return; // skip the index.html file
-                }
-                if (item.name === "README.md") {
-                    return; // skip the README.md file
-                }
-                if (item.name === "Gacha-Level-Calculator") {
-                    return; // skip the Gacha-Level-Calculator folder
+                if (item.name === "index.html" || "README.md" || "Gacha-Level-Calculator" || "LICENCE") {
+                    return; // skip these files
                 }
                 const link = document.createElement("a");
                 const icon = document.createElement("i");
