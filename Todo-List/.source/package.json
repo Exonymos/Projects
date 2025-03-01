@@ -4,12 +4,13 @@
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "react-beautiful-dnd": "^13.1.0"
+    "react-scripts": "5.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.2.4"
   },
