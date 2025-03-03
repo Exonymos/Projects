@@ -1,205 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta name="description" content="All my Projects" />
-    <meta name="author" content="Exonymos" />
-    <title>Github Projects By Exonymos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e9e9e9;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Projects</title>
+  <!-- script and style -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "class", };
+  </script>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+    }
 
-        h1 {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 2em;
-            line-height: 1.4;
-            padding: 10px 0;
-            font-weight: 400;
-            text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-            color: #444;
-        }
+    /* Fade-in animation for folder cards */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
 
-        h1 a {
-            font-weight: 700;
-            color: #333;
-            text-decoration: none;
-        }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
 
-        h1 a:hover {
-            color: #007bff;
-            text-decoration: underline;
-        }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 10px;
-        }
-
-        #fileList {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 10px;
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        #fileList a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            margin: 10px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            color: #333;
-            transition: background-color 0.2s ease-in-out;
-        }
-
-        #fileList a:hover {
-            background-color: #f7f7f7;
-        }
-
-        .fa {
-            font-size: 60px;
-            margin-right: 20px;
-        }
-
-        .fa-folder {
-            color: #ffa500;
-        }
-
-        .fa-file {
-            color: #008cba;
-        }
-
-        .file-name {
-            margin-left: 10px;
-        }
-
-        button,
-        textarea,
-        input,
-        select,
-        a {
-            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-            -webkit-tap-highlight-color: transparent;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .notice {
-            background-color: #ffcc00;
-            color: #333;
-            text-align: center;
-            padding: 10px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 20px;
-                padding: 5px 0;
-            }
-
-            #fileList {
-                max-width: 100%;
-                padding: 0;
-            }
-
-            #fileList a {
-                margin: 10px 5px;
-                flex-basis: 45%;
-            }
-        }
-
-        @media (max-width: 500px) {
-            #fileList a {
-                flex-basis: 80%;
-            }
-        }
-    </style>
+    /* Constrain content width on large screens */
+    .max-width {
+      max-width: 1400px;
+    }
+  </style>
+  <!-- meta tags -->
+  <meta name="description" content="A simple homepage to list all my projects in a repository." />
+  <meta name="keywords" content="HTML, CSS, JavaScript, React, Projects" />
+  <meta name="author" content="Exonymos" />
+  <meta property="og:title" content="My Projects" />
+  <meta property="og:description" content="A simple homepage to list all my projects in a repository." />
+  <meta name="twitter:title" content="My Projects" />
+  <meta name="twitter:description" content="A simple homepage to list all my projects in a repository." />
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="_assets/home/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="_assets/home/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="_assets/home/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="_assets/home/favicon/site.webmanifest" />
 </head>
 
-<body>
-    <div class="notice">
-        Check out my new website at <a href="https://exonymos.me/">exonymos.me</a> where you can explore all my latest projects!
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <!-- Banner -->
+  <header role="banner"
+    class="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-700 to-blue-500 text-white py-4 shadow-lg z-50">
+    <div class="container mx-auto px-4 flex justify-between items-center max-width">
+      <p class="text-sm md:text-base">
+        Visit my main site at
+        <a href="https://exonymos.me" class="underline font-semibold hover:text-blue-200 transition">exonymos.me</a>
+        or my blog at
+        <a href="https://blog.exonymos.me"
+          class="underline font-semibold hover:text-blue-200 transition">blog.exonymos.me</a>
+      </p>
+      <!-- Dark mode toggle button -->
+      <button id="theme-toggle" aria-label="Toggle Dark Mode"
+        class="bg-blue-600 hover:bg-blue-500 text-white text-xs md:text-sm py-1 px-3 rounded transition"></button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 pt-24 pb-8 max-width">
+    <h1 class="text-4xl font-extrabold text-center text-blue-700 dark:text-blue-300 mb-8">My Projects</h1>
+
+    <!-- Controls: Search and Sort -->
+    <div class="flex flex-col sm:flex-row items-center justify-between mb-6 space-y-4 sm:space-y-0">
+      <!-- Search Bar with Icon -->
+      <div class="relative w-full sm:w-1/2">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-gray-500 dark:text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
+          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1116.65 2a7.5 7.5 0 010 14.65z" />
+        </svg>
+        <input id="searchInput" type="text" placeholder="Search Projects..." aria-label="Search Projects"
+          class="w-full pl-10 p-2 rounded border border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100" />
+      </div>
+      <!-- Sort Dropdown -->
+      <div>
+        <select id="sortSelect" aria-label="Sort Projects"
+          class="p-2 rounded border border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+          <option value="asc">Sort A–Z</option>
+          <option value="desc">Sort Z–A</option>
+        </select>
+      </div>
     </div>
 
-    <div class="container">
-        <h1>
-            Projects By <a href="https://github.com/Exonymos">Exonymos</a>
-        </h1>
-        <ul id="fileList"></ul>
+    <!-- Loading Spinner -->
+    <div id="loading" class="text-center text-gray-600 dark:text-gray-400">
+      <svg class="animate-spin h-8 w-8 mx-auto mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+      </svg>
+      Loading projects...
     </div>
 
-    <script>
-        const baseUrl = "https://exonymos.github.io/Projects/";
-        const apiEndpoint =
-            "https://api.github.com/repos/Exonymos/Projects/contents";
+    <!-- Folder List -->
+    <ul id="folderList" class="space-y-4 hidden" role="list"></ul>
 
-        async function fetchData() {
-            try {
-                const response = await fetch(apiEndpoint);
-                if (!response.ok) {
-                    throw new Error("Failed to fetch data");
-                }
-                const data = await response.json();
-                return data;
-            } catch (error) {
-                console.error(error);
-                // Handle error and show appropriate feedback to the user
-            }
-        }
+    <!-- Fallback Error Message -->
+    <div id="fallback" class="text-center text-gray-600 dark:text-gray-400 hidden">
+      No projects found or an error occurred.
+    </div>
+  </main>
 
-        function renderFileList(data) {
-            const fileList = document.getElementById("fileList");
-            data.forEach((item) => {
-                if (item.name === "index.html" || item.name === "README.md" || item.name === "Gacha-Level-Calculator" || item.name === "LICENCE") {
-                    return; // skip these files
-                }
-                const link = document.createElement("a");
-                const icon = document.createElement("i");
-                if (item.type === "dir") {
-                    icon.className = "fas fa-folder";
-                    link.href = baseUrl + item.name + "/";
-                } else {
-                    icon.className = "fas fa-file";
-                    link.href = baseUrl + item.name;
-                }
-                const fileName = document.createElement("span");
-                fileName.className = "file-name";
-                fileName.textContent = item.name;
-                link.appendChild(icon);
-                link.appendChild(fileName);
-                fileList.appendChild(link);
-            });
-        }
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to top"
+    class="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-full shadow-lg transition opacity-0 pointer-events-none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
 
-        async function main() {
-            const data = await fetchData();
-            renderFileList(data);
-        }
+  <!-- Footer -->
+  <footer role="contentinfo" class="bg-gray-200 dark:bg-gray-800 py-4">
+    <div class="container mx-auto px-4 text-center text-sm text-gray-600 dark:text-gray-400 max-width">
+      © 2025 Exonymos. All rights reserved.
+    </div>
+  </footer>
 
-        main();
-    </script>
+  <!-- JavaScript -->
+  <script src="_assets/home/script.js" defer></script>
 </body>
 
 </html>

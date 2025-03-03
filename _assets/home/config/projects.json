@@ -1,0 +1,11 @@
+{ "repoOwner": "Exonymos",
+  "repoName": "Projects",
+  "friendlyNames": {
+    "GI-AR-Calculator": "Genshin Impact AR Calculator"
+
+  },
+  "exclude": [
+    "GI-AR-Calculator",
+    "drafts"
+  ]
+}
