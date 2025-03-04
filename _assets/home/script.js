@@ -22,7 +22,7 @@ function toggleTheme() {
 // If unavailable, fall back to the local mapping.
 async function loadMetadata() {
   try {
-    const res = await fetch("_assets/home/config/projects.json"); // Place your JSON file in the repo root
+    const res = await fetch("config/projects.json"); // Place your JSON file in the repo root
     if (!res.ok) throw new Error("Metadata not found");
     return await res.json(); // Expect JSON object: { friendlyNames: { folderName: "Friendly Name", ... }, exclude: [ "folderToExclude", ... ] }
   } catch (e) {
